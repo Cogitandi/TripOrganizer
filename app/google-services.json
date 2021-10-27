@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "241060504270",
+    "firebase_url": "https://wydatki-tkpk-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "wydatki-tkpk",
+    "storage_bucket": "wydatki-tkpk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241060504270:android:9b944d8d2923983feb269f",
+        "android_client_info": {
+          "package_name": "com.example.tripogranizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241060504270-p26i14nv4cuan0rvo382kauek4dit9pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbFLhGoR0pZ1OyEIE3maSNFcbS7Zd4wWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241060504270-p26i14nv4cuan0rvo382kauek4dit9pi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
