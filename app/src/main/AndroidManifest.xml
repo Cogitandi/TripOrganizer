@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripOgranizer">
         <activity
+            android:name=".AfterLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TripActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

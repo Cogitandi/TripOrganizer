@@ -43,26 +43,8 @@ public class AddTripActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        ref = FirebaseDatabase.getInstance().getReference().child("Trip");
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                inserTripData();
-//            }
-//        });
     }
-//    private void inserTripData(){
-//        String name = nameT.getText().toString();
-//
-//        Trip trip = new Trip(name);
-//
-//        ref.push().child("Name").setValue(trip);
-//        Toast.makeText(AddTripActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
-//        startActivity(new Intent(AddTripActivity.this, TripActivity.class));
-//
-//    }
+
 
     public void ClickMenu(View view){
         AfterLoginActivity.openDrawer(drawerLayout);

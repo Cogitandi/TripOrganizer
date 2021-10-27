@@ -59,9 +59,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Dane prawidłowe", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this , MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                   // Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                  //  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                  //  startActivity(intent);
+                    startActivity(new Intent(LoginActivity.this, AfterLoginActivity.class));
                     finish();
                 }
             }
