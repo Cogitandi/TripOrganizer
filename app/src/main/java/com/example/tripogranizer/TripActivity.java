@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,11 +24,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class TripActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     private ListView listView;
+    public List<Trip> trips = new ArrayList<Trip>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +45,19 @@ public class TripActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item, list);
         listView.setAdapter(adapter);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Trips");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list.add(snapshot.getValue().toString());
+                    Log.d(snapshot.toString(),snapshot.toString());
+                    Trip trip = snapshot.getValue(Trip.class);
+                    if (trip.emails.values().contains(email)) {
+                        list.add(trip.name);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
