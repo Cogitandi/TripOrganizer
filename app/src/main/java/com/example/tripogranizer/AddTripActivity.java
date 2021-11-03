@@ -47,9 +47,7 @@ public class AddTripActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
 
         nameT = findViewById(R.id.register_trip_name);
-        nameU = findViewById(R.id.register_trip_user);
         btn = findViewById(R.id.add_trip_btn);
-        btnUser = findViewById(R.id.add_trip_user_btn);
 
         listView = findViewById(R.id.triplistuser);
 
