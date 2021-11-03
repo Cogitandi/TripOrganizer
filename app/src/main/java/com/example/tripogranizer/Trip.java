@@ -7,8 +7,10 @@ import java.util.Map;
 
 public class Trip {
     public String id;
+
+
     public String name;
-    public Map<String, String> emails = new HashMap<>();
+    public List<String> emails = new ArrayList<String>();
 
     public Trip(){}
 

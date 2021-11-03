@@ -66,9 +66,9 @@ public class AddTripActivity extends AppCompatActivity {
                 } else {
                     String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                     Trip trip = new Trip(txt_name);
-                    trip.emails.put("email",email);
+                    trip.emails.add(email);
                     trip.id = UUID.randomUUID().toString();
-                    FirebaseDatabase.getInstance().getReference().child("Trips").setValue(trip);
+                    FirebaseDatabase.getInstance().getReference().child("Trips").child(trip.id).setValue(trip);
 
                     Toast.makeText(AddTripActivity.this, "Trip has been created. Now please add users to trip.", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(AddTripActivity.this, TripActivity.class));

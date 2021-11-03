@@ -47,15 +47,15 @@ public class TripActivity extends AppCompatActivity {
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Trips");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Log.d(snapshot.toString(),snapshot.toString());
+                    Log.d("Z bazy",snapshot.toString());
                     Trip trip = snapshot.getValue(Trip.class);
-                    if (trip.emails.values().contains(email)) {
+                    if (trip.emails.contains(email)) {
                         list.add(trip.name);
                     }
                 }
