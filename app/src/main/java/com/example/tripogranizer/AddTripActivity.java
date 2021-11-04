@@ -71,7 +71,7 @@ public class AddTripActivity extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference().child("Trips").child(trip.id).setValue(trip);
 
                     Toast.makeText(AddTripActivity.this, "Trip has been created. Now please add users to trip.", Toast.LENGTH_SHORT).show();
-                    //startActivity(new Intent(AddTripActivity.this, TripActivity.class));
+                    startActivity(new Intent(AddTripActivity.this, TripActivity.class));
                 }
             }
         });
@@ -95,12 +95,9 @@ public class AddTripActivity extends AppCompatActivity {
 //                            else
 //                                Toast.makeText(AddTripActivity.this, "There is no such user", Toast.LENGTH_SHORT).show();
 //                        }
-//
 //                    }
-//
 //                    @Override
 //                    public void onCancelled(@NonNull DatabaseError error) {
-//
 //                    }
 //                });
 //            }
@@ -125,6 +122,9 @@ public class AddTripActivity extends AppCompatActivity {
 
     public void ClickAddTrip(View view){
         recreate();
+    }
+    public void ClickImage(View view){
+        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
     }
 
     public void ClickLogout(View view){

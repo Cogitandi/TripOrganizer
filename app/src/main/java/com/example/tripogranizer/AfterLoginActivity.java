@@ -44,6 +44,10 @@ public class AfterLoginActivity extends AppCompatActivity {
         }
     }
 
+    public void ClickImage(View view){
+        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
+    }
+
     public void ClickHome(View view){
         recreate();
     }

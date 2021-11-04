@@ -95,6 +95,10 @@ public class TripActivity extends AppCompatActivity {
         AfterLoginActivity.logout(this);
     }
 
+    public void ClickImage(View view){
+        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
+    }
+
     protected void onPause() {
         super.onPause();
         AfterLoginActivity.closeDrawer(drawerLayout);

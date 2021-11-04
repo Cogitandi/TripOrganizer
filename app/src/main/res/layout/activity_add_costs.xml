@@ -8,7 +8,7 @@
 
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".AddTripActivity">
+    tools:context=".AddCostsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,37 +23,49 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add trip"
+            android:text="Add Costs"
             android:textSize="50sp"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:gravity="center"/>
 
         <EditText
-            android:id="@+id/register_trip_name"
+            android:id="@+id/register_costs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30sp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Trip name"
+            android:hint="What is the price"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/add_trip_btn"
+            android:id="@+id/add_photo_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Add" />
-        <ListView
-            android:id="@+id/triplistuser"
+            android:text="Choose file"
+            android:layout_marginBottom="15dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/black"
+            />
+
+
+        <Button
+            android:id="@+id/upload_photo_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20px"
+            android:text="Upload" />
     </LinearLayout>
     <RelativeLayout
         android:layout_width="300dp"
