@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -41,9 +42,19 @@ public class TripActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item, list);
+        ArrayList<Trip> list = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<Trip>(this,R.layout.item, list);
+
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Trip trip = list.get(position);
+                Intent intent = new Intent(TripActivity.this, TripDetailActivity.class);
+                intent.putExtra("id", trip.id);
+                startActivity(intent);
+            }
+        });
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
@@ -56,7 +67,7 @@ public class TripActivity extends AppCompatActivity {
                     Log.d("Z bazy",snapshot.toString());
                     Trip trip = snapshot.getValue(Trip.class);
                     if (trip.emails.contains(email)) {
-                        list.add(trip.name);
+                        list.add(trip);
                     }
                 }
                 adapter.notifyDataSetChanged();
