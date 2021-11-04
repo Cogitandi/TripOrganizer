@@ -50,6 +50,7 @@
             android:text="Choose file"
             android:layout_marginBottom="15dp"/>
         <ImageView
+            android:id="@+id/imagePhoto"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginLeft="40dp"

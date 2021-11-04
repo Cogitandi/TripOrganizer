@@ -9,6 +9,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -40,6 +41,7 @@ public class AddCostsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_costs);
         ch = findViewById(R.id.add_photo_btn);
         up = findViewById(R.id.upload_photo_btn);
+        img = findViewById(R.id.imagePhoto);
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -85,9 +87,9 @@ public class AddCostsActivity extends AppCompatActivity {
 
     private void Filechooser() {
         Intent intent = new Intent();
-        intent.setType("iamge/");
+        intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
     }
 
     @Override
