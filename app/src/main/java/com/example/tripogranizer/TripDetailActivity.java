@@ -33,6 +33,7 @@ public class TripDetailActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Button AddUser;
     EditText UserEmail;
+    Trip tripWybrany;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class TripDetailActivity extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Trip trip = snapshot.getValue(Trip.class);
                     if (trip.id.equals(tripId)) {
+                        tripWybrany = trip;
                         Toast.makeText(TripDetailActivity.this, "NAZWA TRIPA :" + trip.name,
                                 Toast.LENGTH_LONG).show();
                     }
@@ -73,22 +75,9 @@ public class TripDetailActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Trip trip = snapshot.getValue(Trip.class);
-                            String email = UserEmail.getText().toString();
-                            Log.d("chuj", trip.emails.toString());
-                            trip.emails.add(email);
-                            FirebaseDatabase.getInstance().getReference().child("Trips").child(trip.id).setValue(trip);
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-                });
+                String email = UserEmail.getText().toString();
+                tripWybrany.emails.add(email);
+                FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
             }
         });
 
