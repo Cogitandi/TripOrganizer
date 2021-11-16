@@ -37,7 +37,6 @@ public class AddTripActivity extends AppCompatActivity {
     EditText nameT, nameU;
     Button btn, btnUser;
     DrawerLayout drawerLayout;
-    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +47,6 @@ public class AddTripActivity extends AppCompatActivity {
 
         nameT = findViewById(R.id.register_trip_name);
         btn = findViewById(R.id.add_trip_btn);
-
-        listView = findViewById(R.id.triplistuser);
-
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_user, list);
-        listView.setAdapter(adapter);
-
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -76,32 +68,6 @@ public class AddTripActivity extends AppCompatActivity {
             }
         });
 
-//        btnUser.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
-//                reference.addValueEventListener(new ValueEventListener() {
-//                    @SuppressLint("RestrictedApi")
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                            Map<String , String> map = (Map)snapshot.getValue();
-//                            String pole = nameU.getText().toString();
-//                            String baza = map.get("email");
-//                            if(pole.equals(baza)) {
-//                                FirebaseDatabase.getInstance().getReference().child("Trips").push().child("Users").setValue(pole);
-//                            }
-//                            else
-//                                Toast.makeText(AddTripActivity.this, "There is no such user", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//                    }
-//                });
-//            }
-//        });
     }
 
     public void ClickMenu(View view){

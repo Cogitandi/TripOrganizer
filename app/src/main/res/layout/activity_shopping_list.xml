@@ -8,7 +8,7 @@
 
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".AddTripActivity">
+    tools:context=".ShoppingListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,14 +23,14 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add trip"
-            android:textSize="50sp"
+            android:text="Add Shopping List"
+            android:textSize="40sp"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:gravity="center"/>
 
         <EditText
-            android:id="@+id/register_trip_name"
+            android:id="@+id/register_shopping_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30sp"
@@ -41,7 +41,7 @@
             android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/add_trip_btn"
+            android:id="@+id/add_shopping_list_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60sp"
