@@ -1,87 +1,76 @@
 package com.example.tripogranizer;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class TripActivity extends AppCompatActivity {
+public class AddingToShoppingListActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    private ListView listView;
-    public List<Trip> trips = new ArrayList<Trip>();
+    Button Add;
+    EditText Item, Number;
+    Trip tripWybrany;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trip);
-
-        listView = findViewById(R.id.triplist);
+        setContentView(R.layout.activity_adding_to_shopping_list);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        Add = findViewById(R.id.add_shopping_list_btn);
+        Item = findViewById(R.id.add_item);
+        Number = findViewById(R.id.add_number);
 
-        ArrayList<Trip> list = new ArrayList<Trip>();
-        TripAdapter adapter = new TripAdapter(this, list);
-
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Trip trip = list.get(position);
-                Intent intent = new Intent(TripActivity.this, TripDetailActivity.class);
-                intent.putExtra("id", trip.id);
-                startActivity(intent);
-            }
-        });
+        Intent intent = getIntent();
+        String tripId = intent.getStringExtra("id");
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Log.d("Z bazy",snapshot.toString());
-                    Trip trip = snapshot.getValue(Trip.class);
-                    if (trip.emails.contains(email)) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                        list.add(trip);
+                    Log.d("Z bazy", snapshot.toString());
+                    Trip trip = snapshot.getValue(Trip.class);
+
+                    if (trip.id.equals(tripId)) {
+                        tripWybrany = trip;
                     }
                 }
-                adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+
+        Add.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String item = Item.getText().toString();
+                float number = Float.valueOf(Number.getText().toString());
+//                tripWybrany.emails.add(email);
+//                tripWybrany.items.ad
+                //FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+            }
+        });
+
     }
-
-
 
     public void ClickMenu(View view){
         AfterLoginActivity.openDrawer(drawerLayout);
@@ -96,7 +85,7 @@ public class TripActivity extends AppCompatActivity {
     }
 
     public void ClickTrip(View view){
-        recreate();
+        AfterLoginActivity.redirectActivity(this, TripActivity.class);
     }
 
     public void ClickAddTrip(View view){
@@ -108,7 +97,7 @@ public class TripActivity extends AppCompatActivity {
     }
 
     public void ClickShopping(View view){
-        AfterLoginActivity.redirectActivity(this,ShoppingListActivity.class);
+        AfterLoginActivity.redirectActivity(this, ShoppingListActivity.class);
     }
 
     protected void onPause() {

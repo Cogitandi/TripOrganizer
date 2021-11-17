@@ -82,8 +82,6 @@ public class AddCostsActivity extends AppCompatActivity {
                     Trip trip = snapshot.getValue(Trip.class);
                     if (trip.id.equals(tripId)) {
                         tripWybrany = trip;
-                        Toast.makeText(AddCostsActivity.this, "NAZWA TRIPA :" + trip.name,
-                                Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -167,12 +165,13 @@ public class AddCostsActivity extends AppCompatActivity {
         AfterLoginActivity.redirectActivity(this, AddTripActivity.class);
     }
 
-    public void ClickImage(View view){
-        recreate();
-    }
 
     public void ClickLogout(View view){
         AfterLoginActivity.logout(this);
+    }
+
+    public void ClickShopping(View view){
+        AfterLoginActivity.redirectActivity(this,ShoppingListActivity.class);
     }
 
     protected void onPause() {

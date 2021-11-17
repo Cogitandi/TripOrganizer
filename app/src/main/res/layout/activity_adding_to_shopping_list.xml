@@ -8,7 +8,7 @@
 
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".ShoppingListActivity">
+    tools:context=".AddingToShoppingListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +29,27 @@
             android:textStyle="bold"
             android:gravity="center"/>
 
-        <ListView
-            android:id="@+id/itemlist"
+        <EditText
+            android:id="@+id/add_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_marginBottom="30sp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Item"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/add_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30sp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Number of items"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/add_shopping_list_btn"
@@ -43,7 +58,7 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Add item" />
+            android:text="Add" />
 
     </LinearLayout>
     <RelativeLayout

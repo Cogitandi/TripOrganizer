@@ -89,8 +89,9 @@ public class AddTripActivity extends AppCompatActivity {
     public void ClickAddTrip(View view){
         recreate();
     }
-    public void ClickImage(View view){
-        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
+
+    public void ClickShopping(View view){
+        AfterLoginActivity.redirectActivity(this,ShoppingListActivity.class);
     }
 
     public void ClickLogout(View view){

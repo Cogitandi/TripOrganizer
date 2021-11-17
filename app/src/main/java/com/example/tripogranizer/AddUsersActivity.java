@@ -55,25 +55,6 @@ public class AddUsersActivity extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-//                    Trip trip = snapshot.getValue(Trip.class);
-//                    if (trip.id.equals(tripId)) {
-//                        tripWybrany = trip;
-//                        Toast.makeText(AddUsersActivity.this, "NAZWA TRIPA :" + trip.name,
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
@@ -137,8 +118,8 @@ public class AddUsersActivity extends AppCompatActivity {
         AfterLoginActivity.logout(this);
     }
 
-    public void ClickImage(View view){
-        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
+    public void ClickShopping(View view){
+        AfterLoginActivity.redirectActivity(this,ShoppingListActivity.class);
     }
 
     protected void onPause() {

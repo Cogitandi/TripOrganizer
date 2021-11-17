@@ -44,9 +44,6 @@ public class AfterLoginActivity extends AppCompatActivity {
         }
     }
 
-    public void ClickImage(View view){
-        AfterLoginActivity.redirectActivity(this, AddCostsActivity.class);
-    }
 
     public void ClickHome(View view){
         recreate();
@@ -83,6 +80,10 @@ public class AfterLoginActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    public void ClickShopping(View view){
+        redirectActivity(this,ShoppingListActivity.class);
     }
 
     public static void redirectActivity(Activity activity, Class aClass) {

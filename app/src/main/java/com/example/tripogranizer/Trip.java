@@ -11,6 +11,7 @@ public class Trip {
     public String name;
     public List<String> emails = new ArrayList<String>();
     public List<Float> costs = new ArrayList<Float>();
+    public List<Shopping> items = new ArrayList<Shopping>();
 
     public Trip(){}
 
