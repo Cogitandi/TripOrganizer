@@ -19,6 +19,7 @@
         <include
             layout="@layout/main_toolbar"/>
 
+
         <Button
             android:id="@+id/add_user_to_trip_btn"
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Users" />
+            android:text="Add users" />
 
         <Button
             android:id="@+id/add_costs_to_trip_btn"
@@ -37,23 +38,7 @@
             android:layout_marginTop="40px"
             android:text="Add costs" />
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Users"
-            android:textSize="50sp"
-            android:layout_marginBottom="20dp"
-            android:textStyle="bold"
-            android:gravity="center"/>
 
-
-        <ListView
-            android:id="@+id/triplistuser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
     </LinearLayout>
     <RelativeLayout
         android:layout_width="300dp"

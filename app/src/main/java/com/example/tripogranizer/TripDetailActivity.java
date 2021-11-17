@@ -30,7 +30,6 @@ import java.util.UUID;
 
 public class TripDetailActivity extends AppCompatActivity {
 
-    private ListView listView;
     DrawerLayout drawerLayout;
     Button AddUser, AddCosts;
     Trip tripWybrany;
@@ -44,11 +43,10 @@ public class TripDetailActivity extends AppCompatActivity {
 
         AddUser = findViewById(R.id.add_user_to_trip_btn);
         drawerLayout = findViewById(R.id.drawer_layout);
+
         AddCosts = findViewById(R.id.add_costs_to_trip_btn);
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_user, list);
-        listView.setAdapter(adapter);
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
