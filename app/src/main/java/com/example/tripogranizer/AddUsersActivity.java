@@ -1,77 +1,58 @@
 package com.example.tripogranizer;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class TripActivity extends AppCompatActivity {
+public class AddUsersActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    private ListView listView;
-    public List<Trip> trips = new ArrayList<Trip>();
+    Button AddUser;
+    Trip tripWybrany;
+    EditText UserEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trip);
+        setContentView(R.layout.activity_add_users);
 
-        listView = findViewById(R.id.triplist);
+        Intent intent = getIntent();
+        String tripId = intent.getStringExtra("id");
 
+        AddUser = findViewById(R.id.add_users_to_trip_btn);
         drawerLayout = findViewById(R.id.drawer_layout);
-
-        ArrayList<Trip> list = new ArrayList<Trip>();
-        TripAdapter adapter = new TripAdapter(this, list);
-
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Trip trip = list.get(position);
-                Intent intent = new Intent(TripActivity.this, TripDetailActivity.class);
-                intent.putExtra("id", trip.id);
-                startActivity(intent);
-            }
-        });
-
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        UserEmail = findViewById(R.id.register_user_email);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Log.d("Z bazy",snapshot.toString());
                     Trip trip = snapshot.getValue(Trip.class);
-                    if (trip.emails.contains(email)) {
-
-                        list.add(trip);
+                    if (trip.id.equals(tripId)) {
+                        tripWybrany = trip;
+                        Toast.makeText(AddUsersActivity.this, "NAZWA TRIPA :" + trip.name,
+                                Toast.LENGTH_LONG).show();
                     }
                 }
-                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -79,9 +60,17 @@ public class TripActivity extends AppCompatActivity {
 
             }
         });
+
+        AddUser.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String email = UserEmail.getText().toString();
+                tripWybrany.emails.add(email);
+                FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+            }
+        });
     }
-
-
 
     public void ClickMenu(View view){
         AfterLoginActivity.openDrawer(drawerLayout);
@@ -96,7 +85,7 @@ public class TripActivity extends AppCompatActivity {
     }
 
     public void ClickTrip(View view){
-        recreate();
+        AfterLoginActivity.redirectActivity(this, TripActivity.class);
     }
 
     public void ClickAddTrip(View view){

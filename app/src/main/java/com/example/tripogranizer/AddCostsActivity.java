@@ -13,11 +13,17 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -26,11 +32,13 @@ import com.google.firebase.storage.UploadTask;
 public class AddCostsActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    Button ch,up;
+    Button ch,up,save;
     ImageView img;
     StorageReference mStorageRef;
+    EditText costs1;
     public Uri imguri;
     private StorageTask uploadTask;
+    Trip tripWybrany;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +50,13 @@ public class AddCostsActivity extends AppCompatActivity {
         ch = findViewById(R.id.add_photo_btn);
         up = findViewById(R.id.upload_photo_btn);
         img = findViewById(R.id.imagePhoto);
+        save = findViewById(R.id.add_costs_btn);
+        costs1 = findViewById(R.id.register_costs);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        Intent intent = getIntent();
+        String tripId = intent.getStringExtra("id");
 
         ch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +73,40 @@ public class AddCostsActivity extends AppCompatActivity {
                 Fileuploader();
             }
         });
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Trip trip = snapshot.getValue(Trip.class);
+                    if (trip.id.equals(tripId)) {
+                        tripWybrany = trip;
+                        Toast.makeText(AddCostsActivity.this, "NAZWA TRIPA :" + trip.name,
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+            save.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                float cost = Float.valueOf(costs1.getText().toString());
+                tripWybrany.costs.add(cost);
+                Log.d("Z bazy",tripWybrany.costs.toString());
+                FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+            }
+        });
+
     }
+
 
     private String getExtension(Uri uri){
         ContentResolver cr = getContentResolver();

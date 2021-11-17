@@ -5,37 +5,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".TripDetailActivity">
+    tools:context=".AddUsersActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <include
             layout="@layout/main_toolbar"/>
 
+        <EditText
+            android:id="@+id/register_user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="E-mail"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
         <Button
-            android:id="@+id/add_user_to_trip_btn"
+            android:id="@+id/add_users_to_trip_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Users" />
+            android:text="Add users" />
 
-        <Button
-            android:id="@+id/add_costs_to_trip_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="40px"
-            android:text="Add costs" />
 
         <TextView
             android:layout_marginTop="10dp"

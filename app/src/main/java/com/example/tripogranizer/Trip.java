@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Trip {
+
     public String id;
-
-
     public String name;
     public List<String> emails = new ArrayList<String>();
+    public List<Float> costs = new ArrayList<Float>();
 
     public Trip(){}
 

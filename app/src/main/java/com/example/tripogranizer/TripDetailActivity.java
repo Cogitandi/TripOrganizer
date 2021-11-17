@@ -1,5 +1,6 @@
 package com.example.tripogranizer;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,8 +32,7 @@ public class TripDetailActivity extends AppCompatActivity {
 
     private ListView listView;
     DrawerLayout drawerLayout;
-    Button AddUser;
-    EditText UserEmail;
+    Button AddUser, AddCosts;
     Trip tripWybrany;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,9 @@ public class TripDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String tripId = intent.getStringExtra("id");
 
-        listView = findViewById(R.id.triplistuser);
         AddUser = findViewById(R.id.add_user_to_trip_btn);
         drawerLayout = findViewById(R.id.drawer_layout);
-        UserEmail = findViewById(R.id.register_user_email);
+        AddCosts = findViewById(R.id.add_costs_to_trip_btn);
 
         ArrayList<String> list = new ArrayList<>();
         ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_user, list);
@@ -75,42 +74,20 @@ public class TripDetailActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String email = UserEmail.getText().toString();
-                tripWybrany.emails.add(email);
-                FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+                Intent intent = new Intent(TripDetailActivity.this, AddUsersActivity.class);
+                intent.putExtra("id", tripWybrany.id);
+                startActivity(intent);
             }
         });
 
-
-//        AddUser.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
-//                reference.addValueEventListener(new ValueEventListener() {
-//                    @SuppressLint("RestrictedApi")
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                            Map<String , String> map = (Map)snapshot.getValue();
-//                            String pole = UserEmail.getText().toString();
-//                            String baza = map.get("email");
-//                            Trip trip = snapshot.getValue(Trip.class);
-//                            String email = UserEmail.getText().toString();
-//                            if(pole.equals(baza)) {
-//                                trip.emails.add(email);
-//                                FirebaseDatabase.getInstance().getReference().child("Trips").child(trip.id).setValue(trip);
-//                            }
-//                            else
-//                                Toast.makeText(TripDetailActivity.this, "There is no such user", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//                    }
-//                });
-//            }
-//        });
+        AddCosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripDetailActivity.this, AddCostsActivity.class);
+                intent.putExtra("id", tripWybrany.id);
+                startActivity(intent);
+                }
+        });
 
     }
 
