@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".BillSettlement">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Całkowity koszt wyjazdu" />
+
+    <TextView
+        android:id="@+id/activity_bill_settlement_totalCostTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Koszt wyjazdu na osobe" />
+
+    <TextView
+        android:id="@+id/activity_bill_settlement_costPerUserTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView" />
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dla mnie"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/activity_bill_settlement_settlementDetailsGetLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do oddania"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/activity_bill_settlement_settlementDetailsGiveLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

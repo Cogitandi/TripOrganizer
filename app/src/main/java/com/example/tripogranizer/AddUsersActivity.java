@@ -1,13 +1,16 @@
 package com.example.tripogranizer;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +57,30 @@ public class AddUsersActivity extends AppCompatActivity {
         UserEmail = findViewById(R.id.register_user_email);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String email = list.get(position);
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(AddUsersActivity.this);
+                alert.setTitle("Usun uzytkownika");
+                alert.setMessage("Czy chcesz usunac uzytkownika?");
+                alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        tripWybrany.emails.remove(email);
+                        FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+                    }
+                });
+                alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // close dialog
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
+            }
+        });
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");

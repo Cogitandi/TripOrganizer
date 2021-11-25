@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripOgranizer">
         <activity
+            android:name=".CostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillSettlement"
+            android:exported="false" />
+        <activity
+            android:name=".EditDescriptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddingToShoppingListActivity"
             android:exported="false" />
         <activity

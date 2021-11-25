@@ -20,6 +20,22 @@
             layout="@layout/main_toolbar"/>
 
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Informacje"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/activity_trip_detail_descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/add_user_to_trip_btn"
             android:layout_width="match_parent"
@@ -27,7 +43,34 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Add users" />
+            android:text="Dodaj uzytkownika" />
+
+        <Button
+            android:id="@+id/shopping_list_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20px"
+            android:text="Lista zakupów" />
+
+        <Button
+            android:id="@+id/cost_list_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20px"
+            android:text="Koszty" />
+
+        <Button
+            android:id="@+id/bill_settlement_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20px"
+            android:text="Rozliczenie" />
 
         <Button
             android:id="@+id/add_costs_to_trip_btn"
@@ -36,8 +79,16 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="40px"
-            android:text="Add costs" />
+            android:text="Dodaj koszt" />
 
+        <Button
+            android:id="@+id/edit_information_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20px"
+            android:text="Edytuj informacje o wyjezdzie" />
 
     </LinearLayout>
     <RelativeLayout

@@ -84,8 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             pd.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Update the profile " +
-                                    "for better expereince", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Utworzono konto", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);

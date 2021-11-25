@@ -18,19 +18,37 @@
 
         <include
             layout="@layout/main_toolbar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/activity_shopping_list_allBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wszystkie" />
+
+            <Button
+                android:id="@+id/activity_shopping_list_boughtableBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Do kupienia" />
+        </LinearLayout>
         <TextView
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Shopping List"
+            android:text="Lista zakupów"
             android:textSize="40sp"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:gravity="center"/>
 
         <ListView
-            android:id="@+id/itemlist"
+            android:id="@+id/activity_shopping_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -43,7 +61,7 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Add item" />
+            android:text="Dodaj przedmiot" />
 
     </LinearLayout>
     <RelativeLayout

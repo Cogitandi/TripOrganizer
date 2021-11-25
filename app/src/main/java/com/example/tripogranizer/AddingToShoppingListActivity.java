@@ -38,7 +38,6 @@ public class AddingToShoppingListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String tripId = intent.getStringExtra("id");
 
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Trips");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,11 +61,14 @@ public class AddingToShoppingListActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String item = Item.getText().toString();
-                float number = Float.valueOf(Number.getText().toString());
-//                tripWybrany.emails.add(email);
-//                tripWybrany.items.ad
-                //FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+                Shopping item = new Shopping();
+                item.name = Item.getText().toString();
+                item.number = Integer.valueOf(Number.getText().toString());
+                tripWybrany.items.add(item);
+                FirebaseDatabase.getInstance().getReference().child("Trips").child(tripWybrany.id).setValue(tripWybrany);
+                Intent intent = new Intent(AddingToShoppingListActivity.this, ShoppingListActivity.class);
+                intent.putExtra("id", tripWybrany.id);
+                startActivity(intent);
             }
         });
 

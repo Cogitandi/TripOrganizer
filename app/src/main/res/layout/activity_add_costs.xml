@@ -23,7 +23,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Costs"
+            android:text="Nowy wydatek"
             android:textSize="50sp"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
@@ -36,9 +36,20 @@
             android:layout_marginBottom="30sp"
             android:ems="10"
             android:gravity="center"
-            android:hint="What is the price"
+            android:hint="Koszt [PLN]"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/activity_add_costs_select_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@android:drawable/editbox_background"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:drawablePadding="16dp"
+            android:hint="Wybierz przedmioty"
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/add_photo_btn"

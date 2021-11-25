@@ -4,6 +4,9 @@ public class Shopping {
     public String id;
     public String name;
     public int number;
+    public boolean bought;
+    public String boughtBy;
+
 
     public Shopping(){}
 
@@ -11,6 +14,7 @@ public class Shopping {
         this.id = id;
         this.name = name;
         this.number = number;
+        this.bought = false;
     }
 
     public String getId() {
@@ -29,7 +33,7 @@ public class Shopping {
         this.name = name;
     }
 
-    public int getNumber() {
+    public float getNumber() {
         return number;
     }
 

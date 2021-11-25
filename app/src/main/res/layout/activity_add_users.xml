@@ -35,18 +35,18 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
-            android:text="Add users" />
+            android:text="Dodaj użytkownika" />
 
 
         <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Users"
-            android:textSize="50sp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Osoby"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
 
         <ListView

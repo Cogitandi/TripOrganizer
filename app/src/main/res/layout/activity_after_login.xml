@@ -16,13 +16,14 @@ tools:context=".AfterLoginActivity">
 
     <include
         layout="@layout/main_toolbar"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Aplikacja do rozliczania kosztów wycieczek"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
 
