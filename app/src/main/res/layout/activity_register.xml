@@ -7,16 +7,16 @@
     android:padding="26dp"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/bg"
     tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/register_text_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:text="Rejestracja"
         android:textSize="25sp" />
 
@@ -24,9 +24,11 @@
         android:id="@+id/register_edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:ems="10"
         android:hint="Login"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
         android:gravity="center"
         android:inputType="textPersonName"
         android:minHeight="48dp" />
@@ -35,8 +37,10 @@
         android:id="@+id/register_edit_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:ems="10"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
         android:gravity="center"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
@@ -45,7 +49,9 @@
     <EditText
         android:id="@+id/register_edit_password"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:ems="10"
@@ -59,5 +65,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60sp"
         android:layout_marginRight="60sp"
+        android:background="@drawable/my_button_bg"
         android:text="Zarejestruj" />
 </LinearLayout>

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:background="@drawable/bg"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".AddTripActivity">
@@ -13,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <include
@@ -25,6 +24,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
+            android:shadowColor="#00ccff"
+            android:shadowRadius="2"
+            android:shadowDx="1"
+            android:shadowDy="1"
             android:text="Dodaj wycieczke"
             android:textSize="50sp"
             android:textStyle="bold" />
@@ -35,6 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30sp"
             android:ems="10"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
             android:gravity="center"
             android:hint="Nazwa wycieczki"
             android:inputType="textPersonName"
@@ -47,6 +52,7 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
+            android:background="@drawable/my_button_bg"
             android:text="Dodaj" />
 
     </LinearLayout>

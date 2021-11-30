@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:background="@drawable/bg"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".AddingToShoppingListActivity">
@@ -13,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
         <include
@@ -27,7 +26,11 @@
             android:textSize="40sp"
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:shadowColor="#00ccff"
+            android:shadowRadius="2"
+            android:shadowDx="1"
+            android:shadowDy="1"/>
 
         <EditText
             android:id="@+id/add_item"
@@ -37,6 +40,9 @@
             android:ems="10"
             android:gravity="center"
             android:hint="przedmiot"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
@@ -45,6 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
             android:ems="10"
             android:gravity="center"
             android:hint="Ilość sztuk"
@@ -58,6 +67,7 @@
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
             android:layout_marginTop="20px"
+            android:background="@drawable/my_button_bg"
             android:text="Dodaj" />
 
     </LinearLayout>

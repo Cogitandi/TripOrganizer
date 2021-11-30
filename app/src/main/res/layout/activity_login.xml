@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="26dp"
     android:gravity="center"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:text="Logowanie"
         android:textSize="32sp" />
 
@@ -26,6 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
+        android:layout_marginRight="40sp"
+        android:layout_marginLeft="40sp"
         android:ems="10"
         android:gravity="center"
         android:hint="E-mail"
@@ -39,6 +41,8 @@
         android:layout_marginBottom="20sp"
         android:gravity="center"
         android:ems="10"
+        android:layout_marginRight="40sp"
+        android:layout_marginLeft="40sp"
         android:hint="Hasło"
         android:inputType="textPassword"
         android:minHeight="48dp" />
@@ -47,15 +51,14 @@
         android:id="@+id/login_btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
-        android:layout_marginBottom="20sp"
+        android:background="@drawable/my_button_bg"
+        android:layout_marginBottom="0sp"
         android:layout_marginLeft="60sp"
         android:layout_marginRight="60sp"
         android:text="Zaloguj" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:gravity="center">
 
         <TextView
@@ -71,7 +74,7 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:text="Załóż konto"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
 
     </LinearLayout>

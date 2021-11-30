@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:background="@drawable/bg"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     tools:context=".TripDetailActivity">
@@ -35,60 +35,78 @@
             android:gravity="center"
             android:text="TextView"
             android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/add_user_to_trip_btn"
-            android:layout_width="match_parent"
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20px"
-            android:text="Dodaj uzytkownika" />
+            android:layout_marginTop="15dp" >
+            <Button
+                android:id="@+id/add_user_to_trip_btn"
+                android:layout_width="140sp"
+                android:layout_height="100sp"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="20px"
+                android:background="@drawable/my_button_bg"
+                android:text="Dodaj uzytkownika" />
 
-        <Button
-            android:id="@+id/shopping_list_btn"
-            android:layout_width="match_parent"
+            <Button
+                android:id="@+id/shopping_list_btn"
+                android:layout_width="140sp"
+                android:layout_height="100sp"
+                android:layout_marginLeft="50sp"
+                android:layout_marginRight="50sp"
+                android:background="@drawable/my_button_bg"
+                android:layout_marginTop="35px"
+                android:text="Lista zakupów" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20px"
-            android:text="Lista zakupów" />
+            android:layout_marginTop="15dp" >
+            <Button
+                android:id="@+id/cost_list_btn"
+                android:layout_width="140sp"
+                android:layout_height="100sp"
+                android:background="@drawable/my_button_bg"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="20px"
+                android:text="Koszty" />
 
-        <Button
-            android:id="@+id/cost_list_btn"
-            android:layout_width="match_parent"
+            <Button
+                android:id="@+id/bill_settlement_btn"
+                android:layout_width="140sp"
+                android:layout_height="100sp"
+                android:layout_marginLeft="50sp"
+                android:layout_marginRight="50sp"
+                android:background="@drawable/my_button_bg"
+                android:layout_marginTop="20px"
+                android:text="Rozliczenie" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20px"
-            android:text="Koszty" />
+            android:layout_marginTop="15dp" >
+            <Button
+                android:id="@+id/add_costs_to_trip_btn"
+                android:layout_width="140sp"
+                android:layout_height="100sp"
+                android:layout_marginLeft="30sp"
+                android:layout_marginTop="40px"
+                android:background="@drawable/my_button_bg"
+                android:text="Dodaj koszt" />
 
-        <Button
-            android:id="@+id/bill_settlement_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20px"
-            android:text="Rozliczenie" />
+            <Button
+                android:id="@+id/edit_information_btn"
+                android:layout_width="140sp"
+                android:background="@drawable/my_button_bg"
+                android:layout_height="100sp"
+                android:layout_marginLeft="50sp"
+                android:layout_marginRight="50sp"
+                android:text="Edytuj informacje o wyjezdzie" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/add_costs_to_trip_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="40px"
-            android:text="Dodaj koszt" />
-
-        <Button
-            android:id="@+id/edit_information_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20px"
-            android:text="Edytuj informacje o wyjezdzie" />
 
     </LinearLayout>
     <RelativeLayout
