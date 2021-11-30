@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this , LoginActivity.class));
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null){
-            AfterLoginActivity.redirectActivity(this, AfterLoginActivity.class);
+            AfterLoginActivity.redirectActivity(this, TripActivity.class);
             Toast.makeText(MainActivity.this,"ZALOGOWANY",Toast.LENGTH_LONG);
             
 
