@@ -63,7 +63,7 @@ public class BillSettlement extends AppCompatActivity {
                 for(Refund item: tripWybrany.RefundList()) {
                     if(item.ToUserEmail.equals(currentUser)) {
                         refunds.add(item);
-                        String res = "OD: " + item.FromUserEmail + " | Kwota: " + item.Value + "PLN";
+                        String res = "OD: " + item.FromUserEmail + " | Kwota: " + item.Value + "zł";
                         displayItems.add(res);
                     }
                 }
@@ -75,7 +75,7 @@ public class BillSettlement extends AppCompatActivity {
                 for(Refund item: tripWybrany.RefundList()) {
                     if(item.FromUserEmail.equals(currentUser)) {
                         give.add(item);
-                        String res = "Dla: " + item.ToUserEmail + " | Kwota: " + item.Value + " PLN";
+                        String res = "Dla: " + item.ToUserEmail + " | Kwota: " + item.Value + " zł";
                         displayItemsGive.add(res);
                     }
                 }
